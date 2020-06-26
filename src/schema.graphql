@@ -1,0 +1,23 @@
+type Query{
+    test:String!
+    listarIngredientes(titulo:String!):[Ingredientes!]
+    listarRecetas(titulo:String!):[Recetas!] 
+    buscarRecetasId(idR:ID!):Recetas!
+    buscarRecetasArray(nombre:String!):[Recetas!]
+}
+type Mutation{
+    addIngredientes(nombre:String!, descripcionI:String!):Ingredientes!
+    addRecetas(titulo:String!, descripcionR:String!, pasos:[String!], ingredientes:[String!]):Recetas!
+}
+type Recetas{
+    idR: ID!
+    titulo: String!
+    descripcionR:String!
+    pasos: [String!]
+    ingredientes:[Ingredientes!]
+}
+type Ingredientes{
+    idI: ID!
+    nombre: String!
+    descripcionI: String!
+}
